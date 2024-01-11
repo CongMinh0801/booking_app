@@ -20,6 +20,7 @@ export default function Flights() {
   const [sortValue, setSortValue] = useState("Giá tăng dần");
   const [danhSachChuyenBayVe, setDanhSachChuyenBayVe] = useState([]);
   const [danhSachChuyenBayDi, setDanhSachChuyenBayDi] = useState([]);
+  const [fetchSuccess, setFetchSuccess] = useState<boolean>(false);
   const skeletonArr = ["", "", "", "", "", "", "", "", "", ""]
   let soNguoiLon = useRef<number | null>(null)
   let soTreEm = useRef<number | null>(null)
@@ -113,6 +114,9 @@ export default function Flights() {
         if (!response.data) {
           throw new Error('Failed to fetch data');
         }
+
+        setFetchSuccess(true)
+
       } catch (error: any) {
         console.error('Error fetching data:', error.message);
       }
@@ -143,7 +147,7 @@ export default function Flights() {
     <div className="mt-36 w-full xl:max-w-screen-xl grid grid-cols-3 gap-8">
       <div className="col-span-2">
         <ListFlightHeader sanBayDi={sanBayDiRef.current} sanBayDen={sanBayDenRef.current} ngayDi={ngayDiRef.current} hanhKhach={(soNguoiLon.current ?? 0) + (soTreEm.current ?? 0) + (soEmBe.current ?? 0)} />
-        {flights?.length > 0 ? (
+        {fetchSuccess ? (
           flights.map((item, index) => (
             <div key={index}>
               <Flight
@@ -155,7 +159,8 @@ export default function Flights() {
                 setChuyenDuocChon={setChuyenDuocChon} />
             </div>
           ))
-        ) : (
+        ) : 
+        (
           skeletonArr.map((item, index) => (
             <div key={index}>
               <FlightSkeleton />
