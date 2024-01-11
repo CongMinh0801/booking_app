@@ -34,6 +34,7 @@ const FligtPageDetail = (
 
     const [contactValue, setContactValue] = useState<any>()
     const [passenger, setPassenger] = useState<any>()
+    const [infants, setInfants] = useState<any>()
 
     const nguoiLon = useSelector((state: RootState) => state.passenger.nguoiLon)
     const treEm = useSelector((state: RootState) => state.passenger.treEm)
@@ -61,11 +62,36 @@ const FligtPageDetail = (
             title: "",
             number: 0,
             adult: false,
-            child: false
+            child: false,
+            infants: {
+                ho: "",
+                ten: "",
+                ngaySinh: "",
+                gioiTinh: "",
+                title: "",
+                number: 0,
+                nguoiLon: 0,
+            }
           });
         }
         return newDanhSachHanhKhach;
     }, [nguoiLon, treEm]);
+
+    const danhSachEmBe = useMemo(() => {
+        const newDanhSachEmBe = [];
+        for (let i = 0; i < emBe; i++) {
+          newDanhSachEmBe.push({
+            ho: "",
+            ten: "",
+            ngaySinh: "",
+            gioiTinh: "",
+            title: "",
+            number: 0,
+            nguoiLon: 0,
+          });
+        }
+        return newDanhSachEmBe;
+    }, [emBe]);
     
     useEffect(()=>{
         if(passenger?.type == "Người lớn") {
@@ -73,8 +99,11 @@ const FligtPageDetail = (
         } else if (passenger?.type == "Trẻ em") {
             danhSachHanhKhach[nguoiLon +passenger.number-1] = passenger
         }
-        console.log(danhSachHanhKhach)
     },[passenger])
+
+    useEffect(()=>{
+        danhSachEmBe[infants?.number - 1] = infants
+    },[infants])
 
     const xacNhanDatVe = () => {      
         datVe()
@@ -82,6 +111,13 @@ const FligtPageDetail = (
 
     
     const datVe = async () => {
+        for (let i = 0; i < danhSachEmBe.length; i++) {
+            const index = danhSachEmBe[i].nguoiLon - 1;
+            if (danhSachHanhKhach[index]) {
+                danhSachHanhKhach[index].infants = danhSachEmBe[i];
+            }
+        }
+
         const jsonChuyenDi = {
             "index":1,
             "passengerJourneyDetails":[
@@ -160,9 +196,28 @@ const FligtPageDetail = (
                           "number":""
                        }
                     },
-                    "infants":[
-                       
+                    "infants": danhSachHanhKhach[i].infants?.nguoiLon > 0
+                    ? [
+                        {
+                            "index":danhSachHanhKhach[i].infants?.number + nguoiLon + treEm,
+                            "reservationProfile":{
+                                "lastName": danhSachHanhKhach[i].infants?.ho,
+                                "firstName":danhSachHanhKhach[i].infants?.ten,
+                                "title":"Infant",
+                                "gender":danhSachHanhKhach[i].infants?.gioiTinh,
+                                "address":{
+                                    
+                                },
+                                "birthDate":danhSachHanhKhach[i].infants?.ngaySinh.split(" ")[0],
+                                "personalContactInformation":{
+                                    "phoneNumber":"",
+                                    "mobileNumber":"+84" + contactValue?.diDong?.slice(1,10),
+                                    "email": contactValue?.email
+                                }
+                            }
+                        }
                     ]
+                    : []
                  }
             )
         }
@@ -288,6 +343,7 @@ const FligtPageDetail = (
             {nguoiLonPassengersArray?.map((item: any, index:number) => (
                 <div key={index}>
                     <Passenger 
+                    setInfants = {setInfants}
                     setPassenger={setPassenger} 
                     passenger={"Người lớn"} 
                     number={index+1}/>
@@ -297,18 +353,20 @@ const FligtPageDetail = (
             {treEmPassengersArray?.map((item: any, index:number) => (
                 <div key={index + nguoiLon}>
                     <Passenger 
-                     setPassenger={setPassenger} 
-                     passenger={"Trẻ em"} 
-                     number={index+1}/>
+                    setInfants = {setInfants}
+                    setPassenger={setPassenger} 
+                    passenger={"Trẻ em"} 
+                    number={index+1}/>
                 </div>
             ))}
             
             {emBePassengersArray?.map((item: any, index:number) => (
                 <div key={index + nguoiLon + treEm}>
                     <Passenger 
-                     setPassenger={setPassenger} 
-                     passenger={"Em bé"} 
-                     number={index+1}/>
+                    setInfants = {setInfants}
+                    setPassenger={setPassenger} 
+                    passenger={"Em bé"} 
+                    number={index+1}/>
                 </div>
             ))}
 

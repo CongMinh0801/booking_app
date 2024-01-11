@@ -1,8 +1,10 @@
 'use client'
 
+import { RootState } from "@/app/GlobalRedux/store";
 import "./passenger.css"
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Calendar from "react-calendar"
+import { useSelector } from "react-redux";
 
 type ValuePiece = Date | null ;
 
@@ -13,31 +15,50 @@ const Passenger = (
         passenger,
         number,
         setPassenger,
+        setInfants
     }:{
         passenger: string,
         number: number,
         setPassenger: Dispatch<SetStateAction<any>>,
+        setInfants: Dispatch<SetStateAction<any>>,
     }) => {
-
+    const soNguoiLon = useSelector((state: RootState) => state.passenger.nguoiLon)
     const [ngaySinh, setNgaySinh] = useState<Value>();
     const [calendarNgaySinh, setCalendarNgaySinh] = useState<boolean>(false);
     const [gioiTinh, setGioiTinh] = useState<string>("MALE")
+    const [nguoiLon, setNguoiLon] = useState<number>(1)
     const [ho, setHo] = useState<string>()
     const [ten, setTen] = useState<string>()
+    let listNguoiLon = []
+    for(let i = 0; i < soNguoiLon; i++) {
+        listNguoiLon.push("")
+    }
 
     useEffect(() => {
-        setPassenger({
-            ho: ho,
-            ten: ten,
-            ngaySinh: ngaySinh ? formatDateSubmit(ngaySinh) : "",
-            gioiTinh: gioiTinh,
-            title: gioiTinh == "MALE" ? "Mr" : "Mrs",
-            number: number,
-            type: passenger,
-            adult: passenger == "Người lớn" ? true : false,
-            child: passenger == "Trẻ em" ? true : false,
-        })
-    },[ho, ten, ngaySinh, gioiTinh])
+        if(passenger != "Em bé") {
+            setPassenger({
+                ho: ho,
+                ten: ten,
+                ngaySinh: ngaySinh ? formatDateSubmit(ngaySinh) : "",
+                gioiTinh: gioiTinh,
+                title: gioiTinh == "MALE" ? "Mr" : "Mrs",
+                number: number,
+                type: passenger,
+                adult: passenger == "Người lớn" ? true : false,
+                child: passenger == "Trẻ em" ? true : false,
+            })
+        } else {
+            setInfants({
+                ho: ho,
+                ten: ten,
+                ngaySinh: ngaySinh ? formatDateSubmit(ngaySinh) : "",
+                gioiTinh: gioiTinh,
+                title: gioiTinh == "MALE" ? "Mr" : "Mrs",
+                number: number,
+                nguoiLon: nguoiLon
+            })
+        }
+    },[ho, ten, ngaySinh, gioiTinh, nguoiLon])
 
     const formatDate = (date: Value) => {
         if (date) {
@@ -59,7 +80,7 @@ const Passenger = (
               const thang = thangAbbreviations.indexOf(listItem[1]).toString().length == 2 
               ? (thangAbbreviations.indexOf(listItem[1]) + 1).toString() 
               : "0" + (thangAbbreviations.indexOf(listItem[1]) + 1).toString()
-              return listItem[2] + "-" + thang + "-" + listItem[3] + " " +  listItem[4] + "Z";
+              return listItem[3] + "-" + thang + "-" + listItem[2] + " " +  listItem[4] + "Z";
             }
         } 
         return "Invalid Date";
@@ -77,7 +98,6 @@ const Passenger = (
         const handleClickOutside = (event:any) => {
           const calendarContainer = document.querySelector(`.calendar-container${passenger == "Người lớn" ? "nguoi-lon" + number : 
                                                                                 passenger == "Trẻ em" ? "tre-em" + number: "em-be" + number}`);
-          console.log(calendarContainer)
           if (calendarContainer && !calendarContainer.contains(event.target)) {
                   
             hideCalendar();
@@ -87,14 +107,25 @@ const Passenger = (
         return () => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
-      }, []);
+    }, []);
 
     return (
         <>
             <div className="bg-gray-100 p-2 rounded-md mt-2">
-                <div>
+                <div className="flex justify-between items-center">
                     <h3 className="mb-2 text-gray-800">{`${passenger} ${number}`}</h3>
-                    
+                    {
+                        passenger == "Em bé" 
+                        ? 
+                            <select onChange={(e) => setNguoiLon(parseInt(e.target.value))} name="" id="" className="px-2 mb-2 border rounded-sm h-8 w-32">
+                                {listNguoiLon?.map((item: any, index:number) => (
+                                    <option key={index} className="text-gray-800" value={index + 1}>{`Người lớn ${index + 1}`}</option>
+                                ))}
+                            </select>
+
+                        :
+                            <></>
+                    }
                 </div>
                 <div className="bg-white p-2 w-full grid grid-cols-2 gap-8">
                     <div className="w-full">
