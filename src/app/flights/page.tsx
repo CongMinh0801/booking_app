@@ -147,7 +147,10 @@ export default function Flights() {
     <div className="mt-36 w-full xl:max-w-screen-xl grid grid-cols-3 gap-8">
       <div className="col-span-2">
         <ListFlightHeader sanBayDi={sanBayDiRef.current} sanBayDen={sanBayDenRef.current} ngayDi={ngayDiRef.current} hanhKhach={(soNguoiLon.current ?? 0) + (soTreEm.current ?? 0) + (soEmBe.current ?? 0)} />
-        {fetchSuccess ? (
+        {fetchSuccess ? 
+        (
+        flights.length > 0 ?
+        (
           flights.map((item, index) => (
             <div key={index}>
               <Flight
@@ -160,6 +163,15 @@ export default function Flights() {
             </div>
           ))
         ) : 
+            <div>
+              <p>
+                Không có chuyến bay
+              </p>
+            </div>
+        )
+
+        :
+
         (
           skeletonArr.map((item, index) => (
             <div key={index}>
