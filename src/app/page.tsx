@@ -12,7 +12,7 @@ export default function Home() {
     <>
     <div className="w-full block bg-[url('../../public/sky.jpg')] bg-cover">
       <div className="flex justify-center flex-wrap">
-        <div className="w-full xl:max-w-screen-xl mt-32 flex justify-center flex-wrap">
+        <div className="w-full xl:max-w-screen-xl mt-12 mb-12 flex justify-center flex-wrap">
           <h1 className="my-4 text-white font-bold text-3xl w-full text-center flex justify-center">
             Từ Việt Nam Đến Thế Giới, Trong Tầm Tay Bạn
           </h1>
@@ -20,16 +20,16 @@ export default function Home() {
         </div>
 
         <div className='bg-white w-full rounded-t-3xl flex justify-center'>
-          <div className="pt-16 w-full xl:max-w-screen-xl">
+          <div className="pt-16 pb-16 w-full xl:max-w-screen-xl mx-4 xl:mx-0">
             <div className="">
               <h2 className="font-bold text-xl">Content</h2>
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid xl:grid-cols-3 xl:gap-8 md:grid-cols-2 md:gap-12 sm:grid-cols-1 sm:gap-8 gap-8">
                 <div className="h-40 bg-blue-300 rounded-md"></div>
                 <div className="h-40 bg-blue-300 rounded-md"></div>
                 <div className="h-40 bg-blue-300 rounded-md"></div>
-                <div className="h-40 bg-blue-300 rounded-md"></div>
-                <div className="h-40 bg-blue-300 rounded-md"></div>
-                <div className="h-40 bg-blue-300 rounded-md"></div>
+                <div className="h-40 bg-blue-300 rounded-md hidden md:block"></div>
+                <div className="h-40 bg-blue-300 rounded-md hidden md:block"></div>
+                <div className="h-40 bg-blue-300 rounded-md hidden md:block"></div>
               </div>
             </div>
           </div>

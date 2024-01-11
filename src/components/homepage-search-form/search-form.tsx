@@ -189,8 +189,8 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
 
     return (
       <div className="text-white w-full">
-        <div className="w-full flex items-center justify-between">
-            <div className="w-5/12 relative">
+        <div className="w-full flex flex-wrap items-center justify-between">
+            <div className="lg:w-5/12 w-full lg:mx-0 mx-4 relative">
                 <div className="w-2/4 inline-block font-semibold relative">
                     Từ:<br/>
                     <input type="text" onClick={()=>showListAirport("Đi")} onChange={e => setSanBayDi(e.target.value)} value={sanBayDi} className="my-2 h-14 w-full box-border pl-10 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
@@ -218,7 +218,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                     </svg>
                 </button>
             </div>
-            <div className="w-5/12 relative">
+            <div className="lg:w-5/12 w-full lg:mx-0 mx-4 relative">
                 <div className="w-2/4 inline-block font-semibold relative">
                     Ngày đi:<br/>
                     <input type="text" onClick={()=>showCalendar("Đi")} value={formatDate(ngayDi)} readOnly className="my-2 h-14 w-full box-border pl-10 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
@@ -244,58 +244,72 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </button>
             </div>
 
-            <button onClick={() => timKiem()} className=" bg-orange-500 p-4 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all flex item-center">
+            <button onClick={() => timKiem()} className=" hidden lg:flex bg-orange-500 p-4 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
                 Tìm kiếm
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </button>
         </div>
-        <div className="w-full flex items-center mt-4 mb-4">
-            <div className="search-form-customer-count h-8 py px-4 justify-center flex items-center mr-6 rounded-md border-2 border-gray-200">
+        <div className="w-full lg:flex flex-wrap items-center mb-4 mt-16 mx-4 lg:mt-4 lg:mx-0 grid grid-cols-2 gap-4 lg:text-base text-sm">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
                 Người lớn: 
-                <button onClick={()=>tangHanhKhach("Người lớn")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                </button>
-                {nguoiLon}
-                <button onClick={()=>giamHanhKhach("Người lớn")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                    </svg>
-                </button>
+                <div className="flex items-center justify-between">
+                    <button onClick={()=>tangHanhKhach("Người lớn")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </button>
+                    {nguoiLon}
+                    <button onClick={()=>giamHanhKhach("Người lớn")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <div className="search-form-customer-count h-8 py px-4 justify-center flex items-center mr-6 rounded-md border-2 border-gray-200">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
                 Trẻ em: 
-                <button onClick={()=>tangHanhKhach("Trẻ em")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                </button>
-                {treEm}
-                <button onClick={()=>giamHanhKhach("Trẻ em")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                    </svg>
-                </button>
+                <div className="flex items-center justify-between">
+                    <button onClick={()=>tangHanhKhach("Trẻ em")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </button>
+                    {treEm}
+                    <button onClick={()=>giamHanhKhach("Trẻ em")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <div className="search-form-customer-count h-8 py px-4 justify-center flex items-center mr-6 rounded-md border-2 border-gray-200">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
                 Em bé: 
-                <button onClick={()=>tangHanhKhach("Em bé")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                </button>
-                {emBe}
-                <button onClick={()=>giamHanhKhach("Em bé")} className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                    </svg>
-                </button>
+                <div className="flex items-center justify-between">
+                    <button onClick={()=>tangHanhKhach("Em bé")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </button>
+                    {emBe}
+                    <button onClick={()=>giamHanhKhach("Em bé")} className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 mx-2 hover:bg-gray-200 hover:text-black">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                        </svg>
+                    </button>
+                </div>
             </div>
+        </div>
+        <div className="w-full px-4 flex justify-center">
+            <button onClick={() => timKiem()} className=" w-1/2 flex justify-between lg:hidden bg-orange-500 p-4 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
+                Tìm kiếm
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
         </div>
       </div>
     )
