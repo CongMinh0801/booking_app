@@ -193,8 +193,8 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
             <div className="lg:w-5/12 w-full lg:mx-0 mx-4 relative">
                 <div className="w-2/4 inline-block font-semibold relative">
                     Từ:<br/>
-                    <input type="text" onClick={()=>showListAirport("Đi")} onChange={e => setSanBayDi(e.target.value)} value={sanBayDi} className="my-2 h-14 w-full box-border pl-10 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 absolute left-0 top-1/2 translate-x-1 text-gray-600">
+                    <input type="text" onClick={()=>showListAirport("Đi")} onChange={e => setSanBayDi(e.target.value)} value={sanBayDi} className="my-2 h-10 sm:h-14 text-sm sm:text-base w-full box-border sm:pl-10 pl-7 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute left-1 top-1/2 translate-x-1 text-gray-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
                     <div className={`listairport-container-di w-[200%] ${listAirportDi ? 'block' : 'hidden'} box-border py-2 absolute text-sm text-gray-800 bg-white shadow-lg rounded-md border border-gray-300`}>
@@ -203,8 +203,8 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </div>
                 <div className="w-2/4 inline-block font-semibold relative">
                     Đến:<br/>
-                    <input type="text" onClick={()=>showListAirport("Đến")} onChange={e => setSanBayDen(e.target.value)} value={sanBayDen} className="my-2 h-14 w-full box-border pl-14 border-2 text-gray-600 border-gray-300 rounded-r-xl"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 absolute left-0 top-1/2 translate-x-5 text-gray-600">
+                    <input type="text" onClick={()=>showListAirport("Đến")} onChange={e => setSanBayDen(e.target.value)} value={sanBayDen} className="my-2 h-10 sm:h-14 text-sm sm:text-base w-full box-border sm:pl-14 pl-11 border-2 text-gray-600 border-gray-300 rounded-r-xl"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute left-0 top-1/2 translate-x-5 text-gray-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
                     <div className={`listairport-container-ve w-[200%] ${listAirportDen ? 'block' : 'hidden'} box-border py-2 absolute text-sm text-gray-800 bg-white shadow-lg rounded-md border border-gray-300`}>
@@ -213,7 +213,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </div>
 
                 <button onClick={swapAirport} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2 bg-white p-2 border border-gray-400 rounded-full hover:bg-gray-200 hover:rotate-180 transition-all duration-500 text-black">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                     </svg>
                 </button>
@@ -221,8 +221,8 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
             <div className="lg:w-5/12 w-full lg:mx-0 mx-4 relative">
                 <div className="w-2/4 inline-block font-semibold relative">
                     Ngày đi:<br/>
-                    <input type="text" onClick={()=>showCalendar("Đi")} value={formatDate(ngayDi)} readOnly className="my-2 h-14 w-full box-border pl-10 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 absolute ml-2 left-0 top-1/2 translate-x-1 text-gray-600">
+                    <input type="text" onClick={()=>showCalendar("Đi")} value={formatDate(ngayDi)} readOnly className="my-2 h-10 sm:h-14 text-sm sm:text-base w-full box-border sm:pl-10 pl-7 border-2 text-gray-600 border-gray-300 rounded-l-xl"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute ml-2 left-0 top-1/2 translate-x-1 text-gray-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
                     </svg>
                     <div className={`calendar-container-di ${calendarNgayDi ? 'block' : 'hidden'} absolute z-10 top-full`}>
@@ -231,28 +231,28 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </div>
                 <div className="w-2/4 inline-block font-semibold relative">
                     Ngày về:<br/>
-                    <input disabled={khuHoi ? false : true} type="text" onClick={()=>showCalendar("Về")} value={formatDate(ngayVe)} readOnly className="my-2 h-14 w-full box-border pl-10 border-2 text-gray-600 border-gray-300 rounded-r-xl"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 absolute ml-2 left-0 top-1/2 translate-x-1 text-gray-600">
+                    <input disabled={khuHoi ? false : true} type="text" onClick={()=>showCalendar("Về")} value={formatDate(ngayVe)} readOnly className="my-2 h-10 sm:h-14 text-sm sm:text-base w-full box-border sm:pl-10 pl-7 border-2 text-gray-600 border-gray-300 rounded-r-xl"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute ml-2 left-0 top-1/2 translate-x-1 text-gray-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
                     </svg>
                     <div className={`calendar-container-ve ${calendarNgayVe ? 'block' : 'hidden'} absolute z-10 top-full`}>
                         <Calendar className="bg-white text-gray-600" value={ngayVe} onChange={setNgayVe} />
                     </div>
                 </div>
-                <button onClick={xuLiKhuHoi} className={`text-gray-600 px-2 py-2 hover:bg-orange-600 hover:text-white ${khuHoi ? "bg-orange-500 text-white" : "bg-white"} rounded-md font-medium mt-3 absolute top-full right-0`}>
+                <button onClick={xuLiKhuHoi} className={`text-gray-600 sm:p-2 p-1 sm:text-base text-sm hover:bg-orange-600 hover:text-white ${khuHoi ? "bg-orange-500 text-white" : "bg-white"} rounded-md font-medium mt-3 absolute top-full right-0`}>
                     Khứ hồi
                 </button>
             </div>
 
-            <button onClick={() => timKiem()} className=" hidden lg:flex bg-orange-500 p-4 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
+            <button onClick={() => timKiem()} className=" hidden lg:flex bg-orange-500 sm:p-4 p-2 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
                 Tìm kiếm
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 ml-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </button>
         </div>
-        <div className="w-full lg:flex flex-wrap items-center mb-4 mt-16 mx-4 lg:mt-4 lg:mx-0 grid grid-cols-2 gap-4 lg:text-base text-sm">
-            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
+        <div className="w-full lg:flex flex-wrap items-center mb-4 mt-16 px-4 box-border lg:mt-4 lg:mx-0 grid grid-cols-2 gap-4 sm:text-base text-sm">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 flex justify-between items-center lg:mr-6 mr-0 rounded-md border-2 border-gray-200">
                 Người lớn: 
                 <div className="flex items-center justify-between">
                     <button onClick={()=>tangHanhKhach("Người lớn")} className="">
@@ -269,7 +269,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </div>
             </div>
 
-            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 flex justify-between items-center lg:mr-6 mr-0 rounded-md border-2 border-gray-200">
                 Trẻ em: 
                 <div className="flex items-center justify-between">
                     <button onClick={()=>tangHanhKhach("Trẻ em")} className="">
@@ -286,7 +286,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </div>
             </div>
 
-            <div className="search-form-customer-count h-8 py lg:px-4 px-1 justify-center flex justify-between items-center mr-6 rounded-md border-2 border-gray-200">
+            <div className="search-form-customer-count h-8 py lg:px-4 px-1 flex justify-between items-center lg:mr-6 mr-0 rounded-md border-2 border-gray-200">
                 Em bé: 
                 <div className="flex items-center justify-between">
                     <button onClick={()=>tangHanhKhach("Em bé")} className="">
@@ -304,9 +304,9 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
             </div>
         </div>
         <div className="w-full px-4 flex justify-center">
-            <button onClick={() => timKiem()} className=" w-1/2 flex justify-between lg:hidden bg-orange-500 p-4 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
+            <button onClick={() => timKiem()} className=" w-full sm:w-3/12 flex justify-between lg:hidden bg-orange-500 sm:p-4 p-2 mt-6 box-border border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-orange-600 transition-all item-center">
                 Tìm kiếm
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 ml-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </button>
