@@ -67,7 +67,7 @@ const Card = (
     }
 
     return (
-        <div className="w-full bg-white shadow-md box-border border border-gray-100 p-2 items-center text-base">
+        <div className="w-full bg-white shadow-md box-border border border-gray-100 p-2 items-center text-base fixed bottom-0 left-0 border-t-2 md:border-none md:block">
             <div className="flex w-full justify-between">
                 <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mr-2">

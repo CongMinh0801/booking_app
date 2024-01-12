@@ -20,7 +20,7 @@ export default function Home() {
         </div>
 
         <div className='bg-white w-full rounded-t-3xl flex justify-center'>
-          <div className="pt-16 pb-16 w-full xl:max-w-screen-xl mx-4 xl:mx-0">
+          <div className="md:pt-16 pt-10 pb-16 w-full xl:max-w-screen-xl mx-4 xl:mx-0">
             <div className="">
               <h2 className="font-bold text-xl">Content</h2>
               <div className="grid xl:grid-cols-3 xl:gap-8 md:grid-cols-2 md:gap-12 sm:grid-cols-1 sm:gap-8 gap-8">

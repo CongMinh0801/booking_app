@@ -204,7 +204,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 <div className="w-2/4 inline-block font-semibold relative">
                     Đến:<br/>
                     <input type="text" onClick={()=>showListAirport("Đến")} onChange={e => setSanBayDen(e.target.value)} value={sanBayDen} className="my-2 h-10 sm:h-14 text-sm sm:text-base w-full box-border sm:pl-14 pl-11 border-2 text-gray-600 border-gray-300 rounded-r-xl"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute left-0 top-1/2 translate-x-5 text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6 absolute left-0 top-1/2 translate-x-6 text-gray-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
                     <div className={`listairport-container-ve w-[200%] ${listAirportDen ? 'block' : 'hidden'} box-border py-2 absolute text-sm text-gray-800 bg-white shadow-lg rounded-md border border-gray-300`}>
@@ -212,8 +212,8 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                     </div>
                 </div>
 
-                <button onClick={swapAirport} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2 bg-white p-2 border border-gray-400 rounded-full hover:bg-gray-200 hover:rotate-180 transition-all duration-500 text-black">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 mt-1 lg:mt-0 lg:w-6 lg:h-6">
+                <button onClick={swapAirport} className="absolute left-1/2 top-1/2 -translate-x-1/2 lg:-translate-y-3 sm:-translate-y-2 -translate-y bg-white lg:h-12 lg:w-12 sm:h-10 sm:w-10 h-6 w-6 flex justify-center items-center border border-gray-400 rounded-full hover:bg-gray-200 hover:rotate-180 transition-all duration-500 text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 lg:mt-0 lg:w-6 lg:h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                     </svg>
                 </button>
@@ -251,7 +251,7 @@ export default function SearchForm({router} : {router:AppRouterInstance}) {
                 </svg>
             </button>
         </div>
-        <div className="w-full lg:flex flex-wrap items-center mb-4 mt-16 px-4 box-border lg:mt-4 lg:mx-0 grid grid-cols-2 gap-4 sm:text-base text-sm">
+        <div className="w-full lg:flex flex-wrap items-center mb-4 mt-16 px-4 lg:px-0 box-border lg:mt-4 lg:mx-0 grid grid-cols-2 gap-4 sm:text-base text-sm">
             <div className="search-form-customer-count h-8 py lg:px-4 px-1 flex justify-between items-center lg:mr-6 mr-0 rounded-md border-2 border-gray-200">
                 Người lớn: 
                 <div className="flex items-center justify-between">

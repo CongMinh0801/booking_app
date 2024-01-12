@@ -14,7 +14,7 @@ const Filter = ({
         setSortValue(name);
     };
     return (
-        <div className="w-full mt-8 p-2 bg-white shadow-md rounded-md box-border border border-gray-100">
+        <div className="md:block hidden w-full mt-8 p-2 bg-white shadow-md rounded-md box-border border border-gray-100">
             <h2 className="text-lg font-semibold pb-2 border-b">
                 Bộ lọc
             </h2>

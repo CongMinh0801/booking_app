@@ -74,7 +74,7 @@ const Flight = (
 
     return (
         <div className="bg-white w-full cursor-pointer rounded-md shadow-md mt-4 p-2 box-border border border-gray-100 hover:border-blue-400 transition-all">
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-wrap">
                 <div>
                     <div className="flex justify-start items-center">
                         <Image src="/airlines/vietjet_small.webp" alt="Vietjet" width={30} height={30} />
@@ -96,7 +96,7 @@ const Flight = (
 
                     <div className="mx-2">
                         <p className="text-xs block text-center text-gray-600">{thoiGianBay(thoiGianDi, thoiGianDen)}</p>
-                        <p className="text-xs block text-center text-gray-600">{"----->"}</p>
+                        <p className="text-xs block text-center text-gray-600">{"--->"}</p>
                         <p className="text-xs block text-center text-gray-600">{dataFlight.numberOfChanges == 0 ? "Bay thẳng" : "Nhiều chặng"}</p>
                     </div>
 
@@ -107,9 +107,9 @@ const Flight = (
                     </div>
                 </div>
 
-                <div>
+                <div className="md:mt-0 mt-4 ">
                     {/* <p className="text-end text-xs line-through text-gray-600">2.700.000 VND</p> */}
-                    <p className="text-end text-lg text-orange-500 font-semibold">{tongGiaVe1} VND</p>
+                    <p className="text-end md:text-lg text-base text-orange-500 font-semibold">{tongGiaVe1} VND</p>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ const Flight = (
                     </li>
                 </ul>
 
-                <button onClick={()=>setChuyenDuocChon(dataFlight)} className="bg-blue-500 box-border border-2 border-blue-500 py-2 font-semibold px-8 rounded-md text-white transition-all hover:bg-white hover:text-blue-500">
+                <button onClick={()=>setChuyenDuocChon(dataFlight)} className="bg-blue-500 box-border border-2 border-blue-500 font-semibold md:py-2 md:px-8 py-1 px-6 rounded-md text-white transition-all hover:bg-white hover:text-blue-500">
                     Chọn
                 </button>
             </div> 

@@ -27,7 +27,7 @@ const ListFlightHeader = (
 
     return (
             <div className="w-full p-2 mb-2 bg-blue-500 border-b-4 border-blue-700 rounded shadow-md">
-                <div className="rounded-lg w-full p-2 bg-white flex justify-between items-center transition-all">
+                <div className="rounded-lg w-full p-2 bg-white flex flex-wrap justify-between items-center transition-all">
                     <div>
                        <h2 className="flex items-center w-full text-lg text-gray-800 font-bold">
                             <span>
@@ -48,7 +48,7 @@ const ListFlightHeader = (
                     </div>
 
                     <div>
-                        <button onClick={() => router.push('/')} className="p-4 hover:bg-gray-200 bg-gray-100 rounded-md ml-4 flex items-center">
+                        <button onClick={() => router.push('/')} className="md:p-4 p-2 hover:bg-gray-200 bg-gray-100 rounded-md md:ml-4 ml-0 md:mt-0 mt-3 flex items-center">
                             Thay đổi tìm kiếm
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -57,7 +57,7 @@ const ListFlightHeader = (
                     </div>
                 </div>
 
-                <div className="grid grid-cols-5 gap-8 mt-2 font-semibold">
+                <div className="md:grid grid-cols-5 gap-8 mt-2 font-semibold hidden">
                     <button className="bg-gray-200 bg-opacity-50 rounded-md box-border hover:bg-gray-200 hover:bg-opacity-50 hover:shadow-inner bg-transparent py-2 text-white  transition-all duration-500">
                         Thứ tư<br/> 3 tháng 1
                     </button>
